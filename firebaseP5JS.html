@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.10/p5.js"></script>
+    <link rel="stylesheet" href="firebaseP5JS.css">
+    <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+  </head>
+
+  <body>
+  
+    <div class="container" id ="page1">
+      <h1>Welcome to Canvas Testing</h1>
+      <h3>Please sign-in with your LinkedIn account to continue</h3>
+
+      <!--LinkedIn SignIn-->
+      <script type="text/javascript" src="https://platform.linkedin.com/in.js">
+        api_key:865c5hv6f6juam
+        authorize:true
+      </script>
+
+      <!--SignIn button for linkedIn-->
+     <script type="in/Login"></script>
+
+      <!--Start button to continue to game page-->
+      </br></br>
+      <button onclick="return page2Handler();" type="submit">Start</button>
+    </div>
+
+    <div class="container" id="page2">
+      <h1>Testing canvas</h1>
+      <div id ="i1"><span id="i2"></span></div>
+      <button id="bt1">Click</button></br></br></br>
+      Name: <input type ="text" id="name" value=""></input>
+      <button id="submit" type="submit" onclick="return page3Handler()">Submit</button>
+    </div>
+
+    <div class="container" id="page3">
+      <h1>Your Canvas Score History<span id="scores"></span></h1>
+      
+    </div>
+   
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="firebaseP5JSsketch.js"></script>
+  </body>
+</html>
