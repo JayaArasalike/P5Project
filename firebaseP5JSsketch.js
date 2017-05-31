@@ -64,7 +64,7 @@ $(document).ready(function() {
   }
 
 //linkedIn functions, attaching auth eventhandler
-/*function OnLinkedInFrameworkLoad() {
+function OnLinkedInFrameworkLoad() {
   IN.Event.on(IN, "auth", OnLinkedInAuth);
 }
 
@@ -84,4 +84,4 @@ function ShowProfileData(profiles) {
     //use information captured above
     console.log("First name:", firstName);
     console.log("Last Name:", lastName);
-}*/
+}
