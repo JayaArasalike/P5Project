@@ -84,4 +84,6 @@ function ShowProfileData(profiles) {
     //use information captured above
     console.log("First name:", firstName);
     console.log("Last Name:", lastName);
+    console.log("Picture", photo);
+    console.log("Member Id:",member.id);
 }
