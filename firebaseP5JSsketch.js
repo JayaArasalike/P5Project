@@ -44,7 +44,7 @@ $(document).ready(function() {
   $("#submit").on("click", function(){
       console.log("Submit button clicked: ");
       endTime = moment();
-      duration = moment.duration(endTime.diff(startTime)).asMilliSeconds();
+      duration = moment.duration(endTime.diff(startTime)).asMilliseconds();
 
       
 
