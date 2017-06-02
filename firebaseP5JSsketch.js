@@ -29,6 +29,7 @@ $(document).ready(function() {
   init();
   var startTime;
   var endTime;
+  var duration;
 
 
 //on clicking this button score increases
@@ -43,12 +44,14 @@ $(document).ready(function() {
   $("#submit").on("click", function(){
       console.log("Submit button clicked: ");
       endTime = moment();
-      var duration = moment.duration(endTime.diff(startTime));
+      //var duration = moment.duration(endTime.diff(startTime));
 
       var data = {
         name: $("#name").val(),
         memberId: id,
-        score: score
+        score: score,
+        duration: 10,
+        testDate: moment().format('YYY');
       }
 
       /*var score = {
@@ -58,11 +61,22 @@ $(document).ready(function() {
       }*/
       console.log("Data ", data);
       usersRef.push(data);
+      usersRef.orderByChild("memberId").equalTo(id).on("child_added", function(snapshot) {
+        console.log(snapshot.key);
+        // Add each train's data into the table
+        $("#train-table > tbody").append("<tr><td>" + score+ "</td><td>" + duration + "</td><td>" +
+          testDate + "</td></tr>");
+      });
+
   });
 
   
 
-});
+}); //end of document.ready()
+
+
+
+
 
 //on start button click, display page2
   function page2Handler(){
