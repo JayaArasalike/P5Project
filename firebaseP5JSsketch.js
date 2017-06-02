@@ -29,21 +29,25 @@ $(document).ready(function() {
   init();
   var startTime;
   var endTime;
+  var id;
 
 //on clicking this button score increases
   $("#bt1").on("click", function(){
       console.log("Score before increment: ", score);
       $("#i2").html(++score);
       console.log("Score after increment: ", score);
-      starttime = momemt();
+      starttime = moment();
   });
 
 //on submit button click, the data gathered from the user is pushed to the database
   $("#submit").on("click", function(){
       console.log("Submit button clicked: ");
-      endTime = momemt();
+      endTime = moment();
+      var duration = moment.duration(endTime.diff(startTime));
+
       var data = {
       name: $("#name").val(),
+      memberId:id,
       score: score
       }
 
