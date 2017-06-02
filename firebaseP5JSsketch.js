@@ -68,7 +68,7 @@ $(document).ready(function() {
      
       console.log("Data ", data);
       usersRef.push(data);
-      
+
       usersRef.orderByChild("memberId").equalTo(id).on("child_added", function(snapshot) {
         console.log(snapshot.val());
 
@@ -93,8 +93,8 @@ $(document).ready(function() {
 
 //on start button click, display page2
   function page2Handler(){
-    starttime = moment();
-    console.log("Start time :",starttime);
+    startTime = moment();
+    console.log("Start time :",startTime);
     console.log("Inside page2Handeler");
     $("#page1").css({ visibility: "hidden"}); 
     $("#page2").css({ visibility: "visible"});
