@@ -44,25 +44,28 @@ $(document).ready(function() {
   $("#submit").on("click", function(){
       console.log("Submit button clicked: ");
       endTime = moment();
-      //var duration = moment.duration(endTime.diff(startTime));
+      duration = moment.duration(endTime.diff(startTime)).humanize({precision: 3});
+
+      
 
       var data = {
         name: $("#name").val(),
         memberId: id,
         score: score,
-        duration: 10,
-        testDate: moment().format('YYY')
+        duration: duration,
+        testDate: moment().format('dddd, MMMM Do YYYY')
       }
 
-      /*var score = {
-      starttime:
-      endtime:
-      score:
-      }*/
+     
       console.log("Data ", data);
       usersRef.push(data);
       usersRef.orderByChild("memberId").equalTo(id).on("child_added", function(snapshot) {
-        console.log(snapshot.key);
+        console.log(snapshot.val());
+
+        score = childSnapshot.val().score;
+        duration = childSnapshot.val().duration;
+        testDate = child_added.val().testDate;
+
         // Add each train's data into the table
         $("#train-table > tbody").append("<tr><td>" + score+ "</td><td>" + duration + "</td><td>" +
           testDate + "</td></tr>");
