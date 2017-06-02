@@ -92,7 +92,7 @@ function getProfileData(profiles) {
 
 
     var member = profiles.values[0];
-    var id = member.id;
+    id = member.id;
 
     var firstName = member.firstName; 
     var lastName = member.lastName; 
