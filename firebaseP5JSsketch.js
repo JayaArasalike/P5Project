@@ -51,7 +51,7 @@ $(document).ready(function() {
         memberId: id,
         score: score,
         duration: 10,
-        testDate: moment().format('YYY');
+        testDate: moment().format('YYY')
       }
 
       /*var score = {
