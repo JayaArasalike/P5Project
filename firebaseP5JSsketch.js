@@ -37,14 +37,15 @@ $(document).ready(function() {
       console.log("Score before increment: ", score);
       $("#i2").html(++score);
       console.log("Score after increment: ", score);
-      starttime = moment().format('mm:ss');
+      starttime = moment();
   });
 
 //on submit button click, the data gathered from the user is pushed to the database
   $("#submit").on("click", function(){
       console.log("Submit button clicked: ");
-      endTime = moment().format('mm:ss');
-      duration = moment.duration(endTime.diff(startTime));
+      endTime = moment();
+
+      duration = moment(endTime.diff(startTime)).format('mm:ss');
       console.log("Duration is: ", duration);
 
       
