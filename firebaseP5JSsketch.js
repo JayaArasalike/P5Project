@@ -47,8 +47,12 @@ $(document).ready(function() {
   $("#submit").on("click", function(){
       console.log("Submit button clicked: ");
       endTime = moment();
+      console.log("End time is: ", endTime);
+
       var temp = endTime.diff(startTime);
+      console.log("Temp time: ",temp);
       duration = moment(temp).format('mm:ss');
+
       console.log("Duration is: ", duration);
 
       
@@ -64,6 +68,7 @@ $(document).ready(function() {
      
       console.log("Data ", data);
       usersRef.push(data);
+      
       usersRef.orderByChild("memberId").equalTo(id).on("child_added", function(snapshot) {
         console.log(snapshot.val());
 
@@ -89,6 +94,7 @@ $(document).ready(function() {
 //on start button click, display page2
   function page2Handler(){
     starttime = moment();
+    console.log("Start time :",starttime);
     console.log("Inside page2Handeler");
     $("#page1").css({ visibility: "hidden"}); 
     $("#page2").css({ visibility: "visible"});
