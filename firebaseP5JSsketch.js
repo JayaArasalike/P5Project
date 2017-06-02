@@ -14,7 +14,7 @@ firebase.initializeApp(config);
 //set the database and then set a refernece to the databse
 var database = firebase.database();
 var usersRef = database.ref('/users');
-
+var id;
 
 //run this funciton, only after the document loads
 $(document).ready(function() {
@@ -29,7 +29,7 @@ $(document).ready(function() {
   init();
   var startTime;
   var endTime;
-  var id;
+
 
 //on clicking this button score increases
   $("#bt1").on("click", function(){
@@ -46,9 +46,9 @@ $(document).ready(function() {
       var duration = moment.duration(endTime.diff(startTime));
 
       var data = {
-      name: $("#name").val(),
-      memberId:id,
-      score: score
+        name: $("#name").val(),
+        memberId: id,
+        score: score
       }
 
       /*var score = {
@@ -93,6 +93,7 @@ function getProfileData(profiles) {
 
     var member = profiles.values[0];
     id = member.id;
+    console.log('set id', id);
 
     var firstName = member.firstName; 
     var lastName = member.lastName; 
