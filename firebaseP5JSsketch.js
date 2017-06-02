@@ -44,7 +44,7 @@ $(document).ready(function() {
   $("#submit").on("click", function(){
       console.log("Submit button clicked: ");
       endTime = moment();
-      duration = moment.duration(endTime.diff(startTime)).asSeconds();
+      duration = moment.duration(endTime.diff(startTime)).asMilliSeconds();
 
       
 
@@ -67,7 +67,7 @@ $(document).ready(function() {
         testDate = snapshot.val().testDate;
 
         // Add each train's data into the table
-        $("#train-table > tbody").append("<tr><td>" + score+ "</td><td>" + duration + "</td><td>" +
+        $("#score-table > tbody").append("<tr><td>" + score+ "</td><td>" + duration + "</td><td>" +
           testDate + "</td></tr>");
       });
 
