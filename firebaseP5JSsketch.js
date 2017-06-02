@@ -13,7 +13,8 @@ firebase.initializeApp(config);
 
 //set the database and then set a refernece to the databse
 var database = firebase.database();
-var ref = database.ref('/scores');
+var usersRef = database.ref('/users');
+
 
 //run this funciton, only after the document loads
 $(document).ready(function() {
@@ -26,23 +27,33 @@ $(document).ready(function() {
   }
 
   init();
+  var startTime;
+  var endTime;
 
 //on clicking this button score increases
   $("#bt1").on("click", function(){
       console.log("Score before increment: ", score);
       $("#i2").html(++score);
       console.log("Score after increment: ", score);
+      starttime = momemt();
   });
 
 //on submit button click, the data gathered from the user is pushed to the database
   $("#submit").on("click", function(){
       console.log("Submit button clicked: ");
+      endTime = momemt();
       var data = {
       name: $("#name").val(),
       score: score
       }
+
+      /*var score = {
+      starttime:
+      endtime:
+      score:
+      }*/
       console.log("Data ", data);
-      ref.push(data);
+      usersRef.push(data);
   });
 
   
@@ -70,17 +81,32 @@ function OnLinkedInFrameworkLoad() {
 
 //retrieving user profile
 function OnLinkedInAuth() {
-    IN.API.Profile("me").result(ShowProfileData);
+    IN.API.Profile("me").result(getProfileData);
 }
 
-function ShowProfileData(profiles) {
-    var member = profiles.values[0];
-    var id=member.id;
-    var firstName=member.firstName; 
-    var lastName=member.lastName; 
-    var photo=member.pictureUrl; 
-    var headline=member.headline; 
+function getProfileData(profiles) {
 
+
+    var member = profiles.values[0];
+    var id = member.id;
+
+    var firstName = member.firstName; 
+    var lastName = member.lastName; 
+    var photo = member.pictureUrl; 
+    var headline = member.headline; 
+
+    /*var user = {
+      fName: firstName,
+      lName: lastName,
+      scores: []
+    };
+    
+    
+    usersRef.push(id);
+    userRef = database.ref(('/' + id));
+    userRef.push(user);*/
+
+    
     //use information captured above
     console.log("First name:", firstName);
     console.log("Last Name:", lastName);
