@@ -16,6 +16,10 @@ var database = firebase.database();
 var usersRef = database.ref('/users');
 var id;
 
+var startTime;
+var endTime;
+var duration;
+
 //run this funciton, only after the document loads
 $(document).ready(function() {
   var score;
@@ -27,17 +31,16 @@ $(document).ready(function() {
   }
 
   init();
-  var startTime;
-  var endTime;
-  var duration;
+  
 
 
 //on clicking this button score increases
   $("#bt1").on("click", function(){
+      
       console.log("Score before increment: ", score);
       $("#i2").html(++score);
       console.log("Score after increment: ", score);
-      starttime = moment();
+      
   });
 
 //on submit button click, the data gathered from the user is pushed to the database
@@ -85,6 +88,7 @@ $(document).ready(function() {
 
 //on start button click, display page2
   function page2Handler(){
+    starttime = moment();
     console.log("Inside page2Handeler");
     $("#page1").css({ visibility: "hidden"}); 
     $("#page2").css({ visibility: "visible"});
