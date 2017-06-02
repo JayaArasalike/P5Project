@@ -62,7 +62,7 @@ $(document).ready(function() {
         memberId: id,
         score: score,
         duration: duration,
-        testDate: moment().format('dddd, MMMM Do YYYY')
+        testDate: moment().format('dddd, MMMM Do YYYY, hh:mm:ss')
       }
 
      
