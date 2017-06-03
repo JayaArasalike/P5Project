@@ -150,3 +150,9 @@ function callbackFunction() {
     alert("You have successfully logged out.")
 }
 
+//on restart, hide page3 and show page2 and call its handler to increase the count
+$("#rst").on("click", function(){
+$("#page3").css({ visibility: "hidden"});
+$("#page2").css({ visibility: "visible"});
+page2Handler();
+});
