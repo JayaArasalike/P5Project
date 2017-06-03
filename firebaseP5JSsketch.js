@@ -97,7 +97,7 @@ $(document).ready(function() {
 
 //check the highest score
 function highScore() {
-  console("Just came to highScore function");
+  console.log("Just came to highScore function");
   if(score > hScore)
     hScore = score;
   $("#hScore").html(hScore);
