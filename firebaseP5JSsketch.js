@@ -21,17 +21,17 @@ var endTime;
 var duration;
 var profilePic;
 var photo;
+var score;
 
-//run this funciton, only after the document loads
-$(document).ready(function() {
-  var score;
-
-  //initialize the score and set the initail score on the webpage
-  function init(){
+//initialize the score and set the initail score on the webpage
+function init(){
       score = 0;
       $("#i2").html(score);
   }
 
+//run this funciton, only after the document loads
+$(document).ready(function() {
+  
   //call the init() function to initialize score to zero
   init();
   
