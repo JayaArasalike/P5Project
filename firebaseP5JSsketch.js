@@ -102,7 +102,7 @@ function page2Handler(){
     //creating an image tag to hold and display user's profile pic
     profilePic = $('<img>');
     profilePic.attr("src", photo);
-    pic.append(profilePic);
+    $("#pic").append(profilePic);
 }
 
 //on start button click, display page2
