@@ -17,7 +17,7 @@
         authorize:true
     </script>
 
-    <style type="text/css">th { text-align: center; } </style>
+    <style type="text/css">th { text-align: center; } #rst, #lt { display: inline-block; }</style>
   </head>
 
   <body>
@@ -47,6 +47,7 @@
     <!--Container that holds page3-->
     <div class="container" id="page3">
       <h1>Your Canvas Score History<span id="scores"></span></h1>
+      <h2> Your highest score so far: <span id="hscore"></span></h2>
 
       
 
@@ -79,22 +80,10 @@
 
       </div>
     
-
+      <h3>Do you want to take the test again?</h3>
+      <button id = "rst" onclick="return page2Handler();" type="submit">Restart</button>
       <!--logout button -->
-      <button type="logout" onclick="liLogout()">Logout</button>
-      <!--<script type="text/javascript">
-
-        var liLogout = function() {
-          IN.User.logout(callbackFunction);
-        }
-
-        function callbackFunction() {
-          $("#page3").css({ visibility: "hidden"});
-          alert("You have successfully logged out.")
-        }
-
-      </script> -->
-
+      <button id = "lt" type="logout" onclick="liLogout()">Logout</button>
       
     </div>
    
