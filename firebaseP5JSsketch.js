@@ -154,5 +154,6 @@ function callbackFunction() {
 $("#rst").on("click", function(){
 $("#page3").css({ visibility: "hidden"});
 $("#page2").css({ visibility: "visible"});
+init();
 page2Handler();
 });
