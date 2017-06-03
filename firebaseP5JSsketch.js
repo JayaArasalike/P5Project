@@ -22,6 +22,7 @@ var duration;
 var profilePic;
 var photo;
 var score;
+var hScore = 0;
 
 //initialize the score and set the initail score on the webpage
 function init(){
@@ -80,6 +81,10 @@ $(document).ready(function() {
       duration = snapshot.val().duration;
       testDate = snapshot.val().testDate;
 
+      //highest score
+      highScore();
+      console.log("Came back to orderByChild");
+
       // Add user's score data into the table
       $("#score-table > tbody").append("<tr><td>" + score+ "</td><td>" + duration + "</td><td>" +
       testDate + "</td></tr>");
@@ -90,6 +95,13 @@ $(document).ready(function() {
 
 }); //end of document.ready()
 
+//check the highest score
+function highScore() {
+  console("Just came to highScore function");
+  if(score > hScore)
+    hScore = score;
+  $("#hScore").html(hScore);
+}
 
 //on start button click, display page2
 function page2Handler(){
@@ -152,8 +164,8 @@ function callbackFunction() {
 
 //on restart, hide page3 and show page2 and call its handler to increase the count
 $("#rst").on("click", function(){
-$("#page3").css({ visibility: "hidden"});
-$("#page2").css({ visibility: "visible"});
-init();
-page2Handler();
+  $("#page3").css({ visibility: "hidden"});
+  $("#page2").css({ visibility: "visible"});
+  init();
+  page2Handler();
 });
