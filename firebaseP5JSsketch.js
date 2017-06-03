@@ -50,7 +50,7 @@ $(document).ready(function() {
 //on submit button click, the data gathered from the user is pushed to the database
   $("#submit").on("click", function(event){
     event.preventDefault();
-    
+
       console.log("Submit button clicked: ");
       endTime = moment();
       console.log("End time is: ", endTime);
@@ -169,5 +169,6 @@ $("#rst").on("click", function(){
   $("#page3").css({ visibility: "hidden"});
   $("#page2").css({ visibility: "visible"});
   init();
+  $("#score-table > tbody").empty();
   page2Handler();
 });
