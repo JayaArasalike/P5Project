@@ -130,7 +130,7 @@ function getProfileData(profiles) {
 
     var firstName = member.firstName; 
     var lastName = member.lastName; 
-    var photo = member.pictureUrl; 
+    photo = member.pictureUrl; 
     var headline = member.headline; 
     
     //use information captured above
