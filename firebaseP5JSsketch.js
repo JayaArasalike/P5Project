@@ -140,3 +140,13 @@ function getProfileData(profiles) {
     console.log("Member Id:",member.id);
 }
 
+//On clicking logout button, execute this function
+var liLogout = function() {
+    IN.User.logout(callbackFunction);
+}
+
+function callbackFunction() {
+    $("#page3").css({ visibility: "hidden"});
+    alert("You have successfully logged out.")
+}
+
