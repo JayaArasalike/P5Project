@@ -20,6 +20,7 @@ var startTime;
 var endTime;
 var duration;
 var profilePic;
+var photo;
 
 //run this funciton, only after the document loads
 $(document).ready(function() {
@@ -138,3 +139,4 @@ function getProfileData(profiles) {
     console.log("Picture", photo);
     console.log("Member Id:",member.id);
 }
+
