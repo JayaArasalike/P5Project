@@ -80,10 +80,10 @@ $(document).ready(function() {
 }); //end of document.ready()
 
 //function to calculate the highest score
-function highScore() {
+function highScore(lScore) {
   console.log("Just came to highScore function");
-  if(score > hScore)
-    hScore = score;
+  if(lScore > hScore)
+    hScore = lScore;
   $("#hScore").html(hScore);
 }
 
@@ -115,7 +115,7 @@ function OnLinkedInFrameworkLoad() {
 
 function initRefreshScoreData() {
     //usersRef.orderByChild("memberId").equalTo(id).on("child_added", function(snapshot) {
-      usersRef.on("child_added", function(snapshot) {
+    usersRef.on("child_added", function(snapshot) {
         console.log(snapshot.val());
 
         //get the snapshot of user's score, duration and testDate based on member id
@@ -124,13 +124,13 @@ function initRefreshScoreData() {
         var localTestDate = snapshot.val().testDate;
 
         //highest score
-        highScore();
+        highScore(localScore);
         console.log("Came back to orderByChild");
 
         // Add user's score data into the table
         $("#score-table > tbody").append("<tr><td>" + localScore + "</td><td>" + localDuration + "</td><td>" +
         localTestDate + "</td></tr>");
-  });
+    });
 }
 //retrieving user profile
 function OnLinkedInAuth() {
