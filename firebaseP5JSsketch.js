@@ -77,23 +77,6 @@ $(document).ready(function() {
 
   });
 
-  usersRef.orderByChild("memberId").equalTo(id).on("child_added", function(snapshot) {
-        console.log(snapshot.val());
-
-        //get the snapshot of user's score, duration and testDate based on member id
-        score = snapshot.val().score;
-        duration = snapshot.val().duration;
-        testDate = snapshot.val().testDate;
-
-        //highest score
-        highScore();
-        console.log("Came back to orderByChild");
-
-        // Add user's score data into the table
-        $("#score-table > tbody").append("<tr><td>" + score+ "</td><td>" + duration + "</td><td>" +
-        testDate + "</td></tr>");
-  });
-
 }); //end of document.ready()
 
 //function to calculate the highest score
@@ -130,6 +113,24 @@ function OnLinkedInFrameworkLoad() {
   IN.Event.on(IN, "auth", OnLinkedInAuth);
 }
 
+function initRefreshScoreData() {
+    usersRef.orderByChild("memberId").equalTo(id).on("child_added", function(snapshot) {
+        console.log(snapshot.val());
+
+        //get the snapshot of user's score, duration and testDate based on member id
+        score = snapshot.val().score;
+        duration = snapshot.val().duration;
+        testDate = snapshot.val().testDate;
+
+        //highest score
+        highScore();
+        console.log("Came back to orderByChild");
+
+        // Add user's score data into the table
+        $("#score-table > tbody").append("<tr><td>" + score+ "</td><td>" + duration + "</td><td>" +
+        testDate + "</td></tr>");
+  });
+}
 //retrieving user profile
 function OnLinkedInAuth() {
     IN.API.Profile("me").result(getProfileData);
@@ -151,6 +152,8 @@ function getProfileData(profiles) {
     console.log("Last Name:", lastName);
     console.log("Picture", photo);
     console.log("Member Id:",member.id);
+
+    initRefreshScoreData();
 }
 
 //On clicking logout button, execute this function
