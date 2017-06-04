@@ -163,8 +163,19 @@ function callbackFunction() {
     $("#page3").css({ visibility: "hidden"});
     alert("You have successfully logged out.");
     $("#page1").css({ visibility: "visible"});
+    init();
+    globalInit();
 }
 
+//set all the global variables to zero
+function globalInit() {
+  $("#name").val("");
+  startTime = 0;
+  endTime = 0;
+  duration = 0;
+  profilePic = "";
+
+}
 //on restart, hide page3 and show page2 and call its handler to increase the count
 $("#rst").on("click", function() {
   $("#page3").css({ visibility: "hidden"});
