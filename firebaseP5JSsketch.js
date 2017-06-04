@@ -119,17 +119,17 @@ function initRefreshScoreData() {
         console.log(snapshot.val());
 
         //get the snapshot of user's score, duration and testDate based on member id
-        score = snapshot.val().score;
-        duration = snapshot.val().duration;
-        testDate = snapshot.val().testDate;
+        var localScore = snapshot.val().score;
+        var localDuration = snapshot.val().duration;
+        var localTestDate = snapshot.val().testDate;
 
         //highest score
         highScore();
         console.log("Came back to orderByChild");
 
         // Add user's score data into the table
-        $("#score-table > tbody").append("<tr><td>" + score+ "</td><td>" + duration + "</td><td>" +
-        testDate + "</td></tr>");
+        $("#score-table > tbody").append("<tr><td>" + localScore + "</td><td>" + localDuration + "</td><td>" +
+        localTestDate + "</td></tr>");
   });
 }
 //retrieving user profile
@@ -173,7 +173,7 @@ $("#rst").on("click", function() {
   $("#page3").css({ visibility: "hidden"});
   $("#page2").css({ visibility: "visible"});
   init();
-  $("#score-table > tbody").empty();
+  //$("#score-table > tbody").empty();
   //page2Handler();
   startTime = moment();
 
