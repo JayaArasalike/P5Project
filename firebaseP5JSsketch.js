@@ -25,7 +25,6 @@ var score;
 var hScore = 0;
 
 
-
 //initialize the score and set the initail score on the webpage
 function init(){
       score = 0;
@@ -50,7 +49,7 @@ $(document).ready(function() {
   });
 
 //on submit button click, the data gathered from the user is pushed to the database
-  $("#submit").on("click", function(event){
+  $("#submit").on("click", function(event) {
     event.preventDefault();
 
       console.log("Submit button clicked: ");
@@ -76,26 +75,24 @@ $(document).ready(function() {
       console.log("Data ", data);
       usersRef.push(data);
 
-
-      usersRef.orderByChild("memberId").equalTo(id).on("child_added", function(snapshot) {
-      console.log(snapshot.val());
-
-      //get the snapshot of user's score, duration and testDate based on member id
-      score = snapshot.val().score;
-      duration = snapshot.val().duration;
-      testDate = snapshot.val().testDate;
-
-      //highest score
-      highScore();
-      console.log("Came back to orderByChild");
-
-      // Add user's score data into the table
-      $("#score-table > tbody").append("<tr><td>" + score+ "</td><td>" + duration + "</td><td>" +
-      testDate + "</td></tr>");
-    });
-
   });
 
+  usersRef.orderByChild("memberId").equalTo(id).on("child_added", function(snapshot) {
+        console.log(snapshot.val());
+
+        //get the snapshot of user's score, duration and testDate based on member id
+        score = snapshot.val().score;
+        duration = snapshot.val().duration;
+        testDate = snapshot.val().testDate;
+
+        //highest score
+        highScore();
+        console.log("Came back to orderByChild");
+
+        // Add user's score data into the table
+        $("#score-table > tbody").append("<tr><td>" + score+ "</td><td>" + duration + "</td><td>" +
+        testDate + "</td></tr>");
+  });
 
 }); //end of document.ready()
 
@@ -108,7 +105,7 @@ function highScore() {
 }
 
 //on start button click, display page2
-function page2Handler(){
+function page2Handler() {
     startTime = moment();
     console.log("Start time :",startTime);
     console.log("Inside page2Handeler");
@@ -122,7 +119,7 @@ function page2Handler(){
 }
 
 //on start button click, display page2
-function page3Handler(){
+function page3Handler() {
     console.log("Inside page2Handeler");
     $("#page2").css({ visibility: "hidden"}); 
     $("#page3").css({ visibility: "visible"});
@@ -168,7 +165,7 @@ function callbackFunction() {
 }
 
 //on restart, hide page3 and show page2 and call its handler to increase the count
-$("#rst").on("click", function(){
+$("#rst").on("click", function() {
   $("#page3").css({ visibility: "hidden"});
   $("#page2").css({ visibility: "visible"});
   init();
