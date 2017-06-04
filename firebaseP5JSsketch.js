@@ -24,22 +24,7 @@ var photo;
 var score;
 var hScore = 0;
 
-      usersRef.orderByChild("memberId").equalTo(id).on("child_added", function(snapshot) {
-      console.log(snapshot.val());
 
-      //get the snapshot of user's score, duration and testDate based on member id
-      score = snapshot.val().score;
-      duration = snapshot.val().duration;
-      testDate = snapshot.val().testDate;
-
-      //highest score
-      highScore();
-      console.log("Came back to orderByChild");
-
-      // Add user's score data into the table
-      $("#score-table > tbody").append("<tr><td>" + score+ "</td><td>" + duration + "</td><td>" +
-      testDate + "</td></tr>");
-      });
 
 //initialize the score and set the initail score on the webpage
 function init(){
@@ -87,19 +72,33 @@ $(document).ready(function() {
         duration: duration,
         testDate: moment().format('dddd, MMMM Do YYYY, hh:mm:ss')
       }
-
-     
+    
       console.log("Data ", data);
       usersRef.push(data);
 
+      usersRef.orderByChild("memberId").equalTo(id).on("child_added", function(snapshot) {
+      console.log(snapshot.val());
 
+      //get the snapshot of user's score, duration and testDate based on member id
+      score = snapshot.val().score;
+      duration = snapshot.val().duration;
+      testDate = snapshot.val().testDate;
+
+      //highest score
+      highScore();
+      console.log("Came back to orderByChild");
+
+      // Add user's score data into the table
+      $("#score-table > tbody").append("<tr><td>" + score+ "</td><td>" + duration + "</td><td>" +
+      testDate + "</td></tr>");
+});
 
   });
 
 
 }); //end of document.ready()
 
-//check the highest score
+//function to calculate the highest score
 function highScore() {
   console.log("Just came to highScore function");
   if(score > hScore)
@@ -163,7 +162,8 @@ var liLogout = function() {
 
 function callbackFunction() {
     $("#page3").css({ visibility: "hidden"});
-    alert("You have successfully logged out.")
+    alert("You have successfully logged out.");
+    $("#page1").css({ visibility: "visible"});
 }
 
 //on restart, hide page3 and show page2 and call its handler to increase the count
@@ -172,5 +172,7 @@ $("#rst").on("click", function(){
   $("#page2").css({ visibility: "visible"});
   init();
   $("#score-table > tbody").empty();
-  page2Handler();
+  //page2Handler();
+  startTime = moment();
+
 });
