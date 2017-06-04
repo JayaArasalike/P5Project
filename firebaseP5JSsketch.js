@@ -24,7 +24,22 @@ var photo;
 var score;
 var hScore = 0;
 
+usersRef.orderByChild("memberId").equalTo(id).on("child_added", function(snapshot) {
+      console.log(snapshot.val());
 
+      //get the snapshot of user's score, duration and testDate based on member id
+      score = snapshot.val().score;
+      duration = snapshot.val().duration;
+      testDate = snapshot.val().testDate;
+
+      //highest score
+      highScore();
+      console.log("Came back to orderByChild");
+
+      // Add user's score data into the table
+      $("#score-table > tbody").append("<tr><td>" + score+ "</td><td>" + duration + "</td><td>" +
+      testDate + "</td></tr>");
+});
 
 //initialize the score and set the initail score on the webpage
 function init(){
@@ -76,22 +91,6 @@ $(document).ready(function() {
       console.log("Data ", data);
       usersRef.push(data);
 
-      usersRef.orderByChild("memberId").equalTo(id).on("child_added", function(snapshot) {
-      console.log(snapshot.val());
-
-      //get the snapshot of user's score, duration and testDate based on member id
-      score = snapshot.val().score;
-      duration = snapshot.val().duration;
-      testDate = snapshot.val().testDate;
-
-      //highest score
-      highScore();
-      console.log("Came back to orderByChild");
-
-      // Add user's score data into the table
-      $("#score-table > tbody").append("<tr><td>" + score+ "</td><td>" + duration + "</td><td>" +
-      testDate + "</td></tr>");
-});
 
   });
 
