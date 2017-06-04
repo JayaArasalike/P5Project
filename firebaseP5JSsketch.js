@@ -25,7 +25,7 @@ var score;
 var hScore = 0;
 
 
-//initialize the score and set the initail score on the webpage
+//initialize the score and set the initial score on the webpage
 function init(){
       score = 0;
       $("#i2").html(score);
@@ -38,19 +38,17 @@ $(document).ready(function() {
   init();
   
 
-
 //on clicking this button score increases
   $("#bt1").on("click", function() {
       
       console.log("Score before increment: ", score);
-      $("#i2").html(++score);s
+      $("#i2").html(++score);
       console.log("Score after increment: ", score);
       
   });
 
 //on submit button click, the data gathered from the user is pushed to the database
-  $("#submit").on("click", function(event) {
-    event.preventDefault();
+  $("#submit").on("click", function() {
 
       console.log("Submit button clicked: ");
       endTime = moment();
@@ -62,7 +60,6 @@ $(document).ready(function() {
 
       console.log("Duration is: ", duration);
 
-      
       //creating an object to hold the data, which will be sent to firebase 
       var data = {
         name: $("#name").val(),
