@@ -112,7 +112,7 @@ function OnLinkedInFrameworkLoad() {
 
 function initRefreshScoreData() {
     //usersRef.orderByChild("memberId").equalTo(id).on("child_added", function(snapshot) {
-    usersRef.on("child_added", function(snapshot) {
+    usersRef.orderByChild("memberId").equalTo(id).on("child_added", function(snapshot) {
         console.log(snapshot.val());
 
         //get the snapshot of user's score, duration and testDate based on member id
