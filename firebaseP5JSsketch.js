@@ -104,7 +104,7 @@ function page3Handler() {
     $("#page2").css({ visibility: "hidden"}); 
     $("#page3").css({ visibility: "visible"});
 }
-
+//function to check if the linkedIn authentication was succesful
 //linkedIn functions, attaching auth eventhandler
 function OnLinkedInFrameworkLoad() {
   IN.Event.on(IN, "auth", OnLinkedInAuth);
@@ -150,7 +150,8 @@ function getProfileData(profiles) {
     console.log("Last Name:", lastName);
     console.log("Picture", photo);
     console.log("Member Id:",member.id);
-
+    $("#page1").css({ visibility: "hidden"});
+    $("#pagetemp").css({ visibility: "visible"});
     initRefreshScoreData();
 }
 

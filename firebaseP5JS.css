@@ -40,6 +40,11 @@ body {
   margin-top: -920px;
   padding: 1%;
 }
+#pagetemp{
+  visibility: hidden;
+  margin-top: -920px;
+  padding: 1%;
+}
 #page3 {
   visibility: hidden;
   margin-top: -900px;
