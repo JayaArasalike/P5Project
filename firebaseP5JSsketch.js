@@ -90,6 +90,7 @@ function page2Handler() {
     console.log("Start time :",startTime);
     console.log("Inside page2Handeler");
     $("#page1").css({ visibility: "hidden"}); 
+    $("#pagetemp").css({ visibility: "hidden"}); 
     $("#page2").css({ visibility: "visible"});
     
     //creating an image tag to hold and display user's profile pic
@@ -102,6 +103,7 @@ function page2Handler() {
 function page3Handler() {
     console.log("Inside page2Handeler");
     $("#page2").css({ visibility: "hidden"}); 
+    $("#pagetemp").css({ visibility: "hidden"}); 
     $("#page3").css({ visibility: "visible"});
 }
 //function to check if the linkedIn authentication was succesful
