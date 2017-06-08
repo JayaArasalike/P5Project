@@ -152,9 +152,14 @@ function getProfileData(profiles) {
     console.log("Last Name:", lastName);
     console.log("Picture", photo);
     console.log("Member Id:",member.id);
-    $("#page1").css({ visibility: "hidden"});
-    $("#pagetemp").css({ visibility: "visible"});
+    //$("#page1").css({ visibility: "hidden"});
+    //$("#pagetemp").css({ visibility: "visible"});
     initRefreshScoreData();
+    gotoPage2();
+}
+
+function gotoPage2() {
+  window.location.href = "index2.html";
 }
 
 //On clicking logout button, execute this function
